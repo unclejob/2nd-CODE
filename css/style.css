@@ -192,7 +192,42 @@ img { max-width: 100%; display: block; }
 @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 @keyframes slide { 0% { transform: translateX(0); } 100% { transform: translateX(100px); } }
 @keyframes modalSlide { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-/* Responsive Design */
+/* Floating Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-item {
+    position: absolute;
+    font-size: 2rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-2deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
 @media (max-width: 992px) {
     .hero-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .hero::before { width: 100%; border-radius: 0; height: 500px; top: auto; bottom: 0; }
